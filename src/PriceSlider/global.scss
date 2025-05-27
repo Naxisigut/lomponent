@@ -1,0 +1,17 @@
+// 由于组件的样式无法穿透到子组件，所以需要在全局样式添加
+.price-slider{
+  .slider-cpnt{
+    .u-slider-inner{
+      padding: 28rpx 0 !important;
+    }
+    .u-slider__base{
+      background: linear-gradient( 90deg, #FFF8B4 0%, #F4FBB8 50%, #E6FFB9 100%)!important;
+    }
+    .u-slider__gap{
+      background: transparent !important;
+    }
+    .u-slider__button-wrap{
+      transform: translateX(-36rpx) !important;
+    }
+  }
+}
