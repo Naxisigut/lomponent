@@ -20,6 +20,4 @@ Uniapp 支付宝小程序
 vue3
 
 ## 库依赖
-vk-uview-ui
-`https://vkuviewdoc.fsq.pub/components/intro.html`
 
