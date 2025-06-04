@@ -1,7 +1,31 @@
 ## 简介
 自定义导航栏。
+
+#### pages.json配置
+```json
+// pages数组
+"style": {
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "mp-alipay": { // 支付宝小程序
+    "transparentTitle": "always",
+    "titlePenetrate": "YES",
+    "allowsBounceVertical": "NO"
+  }
+}
+```
+
+#### 下拉透明渐变
 在页面下拉时(onPageScroll)调用onScrollThrottle可实现下拉透明渐变。
-```vue
+```html
+<view class="">
+  <navbar :navbar="navbars"></navbar>
+</view>
+```
+
+```js
 const navbars = reactive({
   title: '商品详情',
 })
