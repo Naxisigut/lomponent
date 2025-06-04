@@ -227,6 +227,10 @@ export default {
 	box-sizing: content-box;
 	/* #endif */
 }
+.safe-area-inset-bottom{
+  padding-bottom: calc(constant(safe-area-inset-bottom));
+  padding-bottom: calc(10rpx + env(safe-area-inset-bottom));
+}
 .custom-tabbar{
   &__content{
     @include vue-flex;

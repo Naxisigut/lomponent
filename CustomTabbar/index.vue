@@ -21,8 +21,6 @@ const list = reactive([
   {
     iconPath: "/static/tabbar/mid.png",
     selectedIconPath: "/static/tabbar/mid.png",
-    // iconPath: "https://file-recycle.kuarke.com/data/product/1/20250520102106/20250520102106095_19183.png",
-    // selectedIconPath: "https://file-recycle.kuarke.com/data/product/1/20250520102106/20250520102106095_19183.png",
     text: 'AI估价',
     midButton: true,
     customIcon: false,
