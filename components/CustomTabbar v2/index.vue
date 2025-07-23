@@ -1,15 +1,15 @@
 <template>
-  <UUTabbar :list="list" @change="change" @mid="onMid"></UUTabbar>
+  <UUTabbar :list="list" @change="change" @mid="onMid" v-bind="bindProps"></UUTabbar>
 </template>
 
-<script setup lang='ts'>
+<script setup>
 import UUTabbar from './uu-tabbar.vue'
-import { reactive } from 'vue'
+import { reactive, getCurrentInstance } from 'vue'
 defineOptions({
-  name: 'CustomTabbar'
+  name: 'RecycleMpTabbar'
 })
 const emit = defineEmits(['change', 'mid'])
-
+const { proxy } = getCurrentInstance()
 const list = reactive([
   {
     iconPath: "/static/tabbar/home.png",
@@ -34,10 +34,31 @@ const list = reactive([
   },
 ])
 
+const beforeSwitch = (index) => {
+  const eventName = index === 0
+    ? "tab_home_click"
+    : index === 1
+    ? "tab_estimate_click"
+    : index === 2
+    ? "tab_my_click"
+    : ""
+  eventName && proxy.$sensors.track(eventName, {})
+  return true
+}
 const change = (params) => emit('change', params)
 const onMid = (params) => {
   emit('mid', params)
+  uni.navigateTo({
+    url: '/packageA/pages/photoChoose/photoChoose'
+  })
 }
+
+
+const bindProps = reactive({
+  activeColor: '#090C15',
+  inactiveColor: '#9D9EA1',
+  beforeSwitch,
+})
 </script>
 
 <style lang='scss' scoped>
