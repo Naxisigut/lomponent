@@ -1,9 +1,10 @@
 <template>
-  <up-navbar v-bind="vBindProps"/>
+  <up-navbar v-bind="vBindProps" @leftClick="onLeftClick"/>
 </template>
 
 <script setup>
 import { computed, onMounted, reactive } from 'vue'
+const emit = defineEmits(['leftClick'])
 const props = defineProps({
   navbar: {
     type: Object,
@@ -22,6 +23,9 @@ onMounted(() => {
   // #endif
 })
 
+const onLeftClick = () => {
+  emit('leftClick')
+}
 
 const defaultProps = reactive({
   titleStyle: {
@@ -30,7 +34,13 @@ const defaultProps = reactive({
     fontWeight: '600'
   },
   placeholder: true,
-  leftIcon: "",
+  // #ifdef MP-ALIPAY
+  leftIcon: "", // 支付宝小程序原生的返回按钮不可取消，故此处置空
+  // #endif
+  // #ifdef MP-WEIXIN
+  leftIcon: 'arrow-left',
+  autoBack: true,
+  // #endif
   bgColor: 'transparent'
 })
 const vBindProps = computed(() => {
