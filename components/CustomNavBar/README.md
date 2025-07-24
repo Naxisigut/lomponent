@@ -12,7 +12,7 @@
   "mp-alipay": { // 支付宝小程序
     "transparentTitle": "always",
     "titlePenetrate": "YES",
-    "allowsBounceVertical": "NO"
+    "allowsBounceVertical": "NO" // 设置后就不能够下拉刷新
   }
 }
 ```
